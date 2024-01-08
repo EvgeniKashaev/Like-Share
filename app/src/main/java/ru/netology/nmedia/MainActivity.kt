@@ -25,9 +25,12 @@ class MainActivity : AppCompatActivity() {
             published.text = post.published
             content.text = post.content
             if (post.likedByMe) {
-                like?.setImageResource(R.drawable.ic_liked_24)
+                like.setImageResource(R.drawable.ic_liked_24)
             }
-            likeCount?.text = post.likes.toString()
+
+            shareCount.text = post.shares.toString()
+
+            likeCount.text = post.likes.toString()
 
             root.setOnClickListener {
                 Log.d("stuff", "stuff")
@@ -37,14 +40,18 @@ class MainActivity : AppCompatActivity() {
                 Log.d("stuff", "avatar")
             }
 
-            like?.setOnClickListener {
+            share.setOnClickListener {
+                shareCount.text = (++post.shares).toString()
+            }
+
+            like.setOnClickListener {
                 Log.d("stuff", "like")
                 post.likedByMe = !post.likedByMe
                 like.setImageResource(
                     if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
                 )
                 if (post.likedByMe) post.likes++ else post.likes--
-                likeCount?.text = post.likes.toString()
+                likeCount.text = post.likes.toString()
             }
         }
     }
