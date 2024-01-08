@@ -3,6 +3,7 @@ package ru.netology.nmedia
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.UiContext
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
 
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
             published = "21 мая в 18:36",
             likedByMe = false
         )
+
         with(binding) {
             author.text = post.author
             published.text = post.published
@@ -28,9 +30,9 @@ class MainActivity : AppCompatActivity() {
                 like.setImageResource(R.drawable.ic_liked_24)
             }
 
-            shareCount.text = post.shares.toString()
+            shareCount.text = UIFormatter.format(post.shares)
 
-            likeCount.text = post.likes.toString()
+            likeCount.text = UIFormatter.format(post.likes)
 
             root.setOnClickListener {
                 Log.d("stuff", "stuff")
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             share.setOnClickListener {
-                shareCount.text = (++post.shares).toString()
+                shareCount.text = UIFormatter.format(++post.shares)
             }
 
             like.setOnClickListener {
@@ -51,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                     if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
                 )
                 if (post.likedByMe) post.likes++ else post.likes--
-                likeCount.text = post.likes.toString()
+                likeCount.text = UIFormatter.format(post.likes)
             }
         }
     }
