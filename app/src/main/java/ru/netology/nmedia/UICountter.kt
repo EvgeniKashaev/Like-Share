@@ -26,7 +26,7 @@ object UIFormatter {
 
                 val number = BigDecimal(count)
 
-                val result = number.divide(BigDecimal(1_000_000), 1, RoundingMode.FLOOR)
+                val result = number.divide(BigDecimal(1_000_000), RoundingMode.FLOOR)
 
                 result.toPlainString() + "M"
             }
