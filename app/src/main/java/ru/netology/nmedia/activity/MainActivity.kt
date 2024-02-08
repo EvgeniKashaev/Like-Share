@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
                 author.text = post.author
                 published.text = post.published
                 content.text = post.content
+                like.setImageResource(
+                    if (post.likedByMe) R.drawable.ic_like_24 else R.drawable.ic_liked_24
+                )
 
                 shareCount.text = UIFormatter.format(post.shares)
 
@@ -38,9 +41,7 @@ class MainActivity : AppCompatActivity() {
                 share.setOnClickListener {
                     shareCount.text = UIFormatter.format(viewModel.share())
                 }
-                like.setImageResource(
-                    if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
-                )
+
                 like.setOnClickListener {
                     likeCount.text = UIFormatter.format(viewModel.like())
                 }
