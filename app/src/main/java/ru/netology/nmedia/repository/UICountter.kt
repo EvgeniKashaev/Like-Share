@@ -1,4 +1,4 @@
-package ru.netology.nmedia
+package ru.netology.nmedia.repository
 
 import java.math.BigDecimal
 import java.math.RoundingMode
@@ -30,7 +30,5 @@ object UIFormatter {
 
                 result.toPlainString() + "M"
             }
-
-
         }
 }
