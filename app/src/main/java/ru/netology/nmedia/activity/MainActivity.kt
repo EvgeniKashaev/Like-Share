@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                     shareCount.text = UIFormatter.format(viewModel.share())
                 }
                 like.setImageResource(
-                    if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
+                    if (post.likedByMe)  R.drawable.ic_liked_24 else R.drawable.ic_like_24
                 )
                 like.setOnClickListener {
                     likeCount.text = UIFormatter.format(viewModel.like())
