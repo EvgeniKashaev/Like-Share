@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 published.text = post.published
                 content.text = post.content
                 like.setImageResource(
-                    if (post.likedByMe) R.drawable.ic_like_24 else R.drawable.ic_liked_24
+                    if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
                 )
 
                 shareCount.text = UIFormatter.format(post.shares)

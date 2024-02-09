@@ -1,7 +1,6 @@
 package ru.netology.nmedia.repository
 
 import androidx.lifecycle.MutableLiveData
-import ru.netology.nmedia.R
 import ru.netology.nmedia.dto.Post
 
 class PostRepositoryInMemoryImpl : PostRepository {
@@ -15,8 +14,10 @@ class PostRepositoryInMemoryImpl : PostRepository {
 
     override fun get(): MutableLiveData<Post> = data
     override fun like() {
-        post = post.copy(likedByMe = !post.likedByMe,
-            likes = if (post.likedByMe) post.likes + 1 else post.likes - 1)
+        post = post.copy(
+            likedByMe = !post.likedByMe,
+            likes = if (post.likedByMe) post.likes - 1 else post.likes + 1
+        )
         data.value = post
     }
 
