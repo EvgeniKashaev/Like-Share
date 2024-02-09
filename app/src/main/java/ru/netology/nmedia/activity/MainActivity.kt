@@ -38,12 +38,11 @@ class MainActivity : AppCompatActivity() {
                     Log.d("stuff", "avatar")
                 }
 
-                share.setOnClickListener {
-                    shareCount.text = UIFormatter.format(viewModel.share())
+                binding.like.setOnClickListener {
+                    viewModel.like()
                 }
-
-                like.setOnClickListener {
-                    likeCount.text = UIFormatter.format(viewModel.like())
+                binding.share.setOnClickListener {
+                    viewModel.share()
                 }
             }
         }

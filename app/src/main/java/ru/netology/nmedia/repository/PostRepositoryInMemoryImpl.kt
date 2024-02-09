@@ -14,16 +14,14 @@ class PostRepositoryInMemoryImpl : PostRepository {
     private val data = MutableLiveData(post)
 
     override fun get(): MutableLiveData<Post> = data
-    override fun like(): Int {
+    override fun like() {
         post = post.copy(likedByMe = !post.likedByMe,
             likes = if (post.likedByMe) post.likes + 1 else post.likes - 1)
         data.value = post
-
-        return post.likes
     }
 
-    override fun share(): Int {
+    override fun share() {
         post = post.copy(shares = (post.shares + 1))
-        return post.shares
+        data.value = post
     }
 }

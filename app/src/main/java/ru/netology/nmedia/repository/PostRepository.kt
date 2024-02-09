@@ -5,7 +5,7 @@ import ru.netology.nmedia.dto.Post
 
 interface PostRepository {
     fun get(): MutableLiveData<Post>
-    fun like(): Int
-    fun share(): Int
+    fun like()
+    fun share()
 
 }
