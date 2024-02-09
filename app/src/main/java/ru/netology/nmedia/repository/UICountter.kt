@@ -14,6 +14,7 @@ object UIFormatter {
 
                 result.toPlainString() + "K"
             }
+
             in 10_000..999_999 -> {
                 val number = BigDecimal(count)
 
